@@ -89,7 +89,7 @@ docker run --rm -v /your/data/here:/data entropic_ranks
 
 # Additional useful commands
 
-## Export a docker image to a tar archive file#
+## Export a docker image to a tar archive file
 Useful for archiving purposes and a pre-requisite to transfer the docker image to a machine instead of re-building it (e.g. to work around a lack of internet connectivity).
 ```console
 docker image save -o Entropic_Ranks_image_2020-10-22.tar.gz entropic_ranks
@@ -98,7 +98,7 @@ docker image save -o Entropic_Ranks_image_2020-10-22.tar.gz entropic_ranks
 **-o Entropic_Ranks_image_2020-10-22.tar.gz  entropic_ranks** - The "-o" flag signifies that Docker should save the image to a file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is a freely-chosen filename for the archived docker image. The "entropic_ranks" part of the argument is the name for the docker image chosen at the time of creation.
 
 
-## Load a docker image from a tar archive file#
+## Load a docker image from a tar archive file
 This allows a previously created tar archive file of a docker image to be loaded and prepared to be used to create new containers. Useful for archiving purposes and a pre-requisite to transfer the docker image to a machine instead of re-building it (e.g. to work around a lack of internet connectivity).
 ```console
 docker image load -i Entropic_Ranks_image_2020-10-22.tar.gz
@@ -107,7 +107,7 @@ docker image load -i Entropic_Ranks_image_2020-10-22.tar.gz
 **-i Entropic_Ranks_image_2020-10-22.tar.gz** - The "-i" flag signifies that Docker will attempt to parse and load the contents of a tar archive file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is the current name of the docker image tar archive file to be loaded (it can be a full path to the file).
 
 
-## Getting access to the newly-created files#
+## Getting access to the newly-created files
 Traditionally, docker execution tends to create conflicts regarding user rights to files created by a docker and transferred to the host system as Entropic Ranks does with all its non-terminal output. This command will allow a user that should normally have the rights to move and delete files extend them to the newly-created result files.
 ```console
 sudo chown -R $(id -u) /your/data/here
