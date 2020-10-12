@@ -1,9 +1,9 @@
 # Entropic Ranks (docker) Readme
 
-## Description:
+# Description:
 Performs an Entropic Ranks analysis on a data set, returning a list containing downregulated and upregulated features. May be used supervised, returning the full feature list and printing the suggested cutoff points for later manual trimming, or unsupervised, returning only the information-rich feature list. In the unsupervised mode, the lists of information-rich features may be exported as tab-delimited .txt files automatically.
 
-## Usage within an R script
+# Usage within an R script
 
 ```{r}
 entropic_ranks(data_under_analysis,population_vector,data_origin=NULL,granularity=1,supervised=FALSE,process_log=FALSE,export_plots=FALSE,create_output_files=FALSE,is_logged=TRUE,logbase=2,huge_feature_list=FALSE)
@@ -22,7 +22,6 @@ entropic_ranks(data_under_analysis,population_vector,data_origin=NULL,granularit
 
 **supervised** - If TRUE, the full list of differentially behaving features is returned and the tables of suggested cutoff points are printed in the terminal. If FALSE, only the list of information-rich features is returned, the trimming having been performed automatically.
 > default value: FALSE
-
 
 **process_log** - If TRUE, statistics and details of the Entropic Ranks execution will be printed in the terminal and plots of the entropy distributions and clustering qualities will be generated (the latter would only be viewable when running the method in an R GUI, but not as a dockerized application). This would facilitate post-analysis manual assessment of data quality and result reliability, but would be unnecessary if the desired result was the integration in a fully automated pipeline.
 > default value: FALSE
@@ -43,10 +42,10 @@ entropic_ranks(data_under_analysis,population_vector,data_origin=NULL,granularit
 > default value: FALSE
 
 
-## Dockerized usage
+# Dockerized usage
 In the following examples, we will be assuming the docker image is to be named named "entropic_ranks". Moreover, we will only clarify important variables and arguments that have not been referred to so far.
 
-# Docker image creation
+## Docker image creation
 (requires "Docker" to be installed)
 ```console
 git clone https://github.com/Hector-Xavier/Entropic_Ranks_docker
@@ -57,7 +56,8 @@ docker build -t entropic_ranks Entropic_Ranks_docker
 **-t entropic_ranks** - Sets the name of the resulting docker image to a name of the user's preference, so that repeated usage is facilitated. In our examples, "entropic_ranks" was used.
 
 
-# Full-parameter usage example (using default values)
+## Full-parameter usage example
+Using default values.
 ```console
 docker run --rm -v "/your/data/here:/data entropic_ranks Rscript Entropic_Ranks.R /data/GSE_data_set.txt /data/vec.txt null 1 FALSE FALSE TRUE TRUE TRUE 2 FALSE
 ```
@@ -75,21 +75,21 @@ docker run --rm -v "/your/data/here:/data entropic_ranks Rscript Entropic_Ranks.
 **/data/GSE_data_set.txt /data/vec.txt null 1 FALSE FALSE TRUE TRUE TRUE 2 FALSE** - The arguments correspond 1-1 to the arguments of Entropic Ranks.
 
 
-# Customized usage example
-Using a data origin file, supervised execution, without creating output files or plots
+## Customized usage example
+Using a data origin file, supervised execution, without creating output files or plots.
 ```console
 docker run --rm -v /your/data/here:/data entropic_ranks Rscript Entropic_Ranks.R /data/GSE_data_set.txt /data/vec.txt /data/data_origin_file.txt 1 TRUE FALSE FALSE FALSE TRUE 2 FALSE
 ```
 
-# Fully default usage
+## Fully default usage
 The two input files *must* be named "data_table.txt" and "population_vector.txt", all samples *must* have the same origin and all other parameters *will be set to default*.
 ```console
 docker run --rm -v /your/data/here:/data entropic_ranks
 ```
 
-## Additional useful commands
+# Additional useful commands
 
-# Export a docker image to a tar archive file#
+## Export a docker image to a tar archive file#
 Useful for archiving purposes and a pre-requisite to transfer the docker image to a machine instead of re-building it (e.g. to work around a lack of internet connectivity).
 ```console
 docker image save -o Entropic_Ranks_image_2020-10-22.tar.gz entropic_ranks
@@ -98,7 +98,7 @@ docker image save -o Entropic_Ranks_image_2020-10-22.tar.gz entropic_ranks
 **-o Entropic_Ranks_image_2020-10-22.tar.gz  entropic_ranks** - The "-o" flag signifies that Docker should save the image to a file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is a freely-chosen filename for the archived docker image. The "entropic_ranks" part of the argument is the name for the docker image chosen at the time of creation.
 
 
-# Load a docker image from a tar archive file#
+## Load a docker image from a tar archive file#
 This allows a previously created tar archive file of a docker image to be loaded and prepared to be used to create new containers. Useful for archiving purposes and a pre-requisite to transfer the docker image to a machine instead of re-building it (e.g. to work around a lack of internet connectivity).
 ```console
 docker image load -i Entropic_Ranks_image_2020-10-22.tar.gz
@@ -107,7 +107,7 @@ docker image load -i Entropic_Ranks_image_2020-10-22.tar.gz
 **-i Entropic_Ranks_image_2020-10-22.tar.gz** - The "-i" flag signifies that Docker will attempt to parse and load the contents of a tar archive file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is the current name of the docker image tar archive file to be loaded (it can be a full path to the file).
 
 
-# Getting access to the newly-created files#
+## Getting access to the newly-created files#
 Traditionally, docker execution tends to create conflicts regarding user rights to files created by a docker and transferred to the host system as Entropic Ranks does with all its non-terminal output. This command will allow a user that should normally have the rights to move and delete files extend them to the newly-created result files.
 ```console
 sudo chown -R $(id -u) /your/data/here
