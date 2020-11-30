@@ -104,7 +104,7 @@ This allows a previously created tar archive file of a docker image to be loaded
 docker image load -i Entropic_Ranks_image_2020-10-22.tar
 ```
 
-**-i Entropic_Ranks_image_2020-10-22.tar.gz** - The "-i" flag signifies that Docker will attempt to parse and load the contents of a tar archive file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is the current name of the docker image tar archive file to be loaded (it can be a full path to the file).
+**-i Entropic_Ranks_image_2020-10-22.tar** - The "-i" flag signifies that Docker will attempt to parse and load the contents of a tar archive file. The "Entropic_Ranks_image_2020-10-22.tar" part of the argument is the current name of the docker image tar archive file to be loaded (it can be a full path to the file).
 
 
 ## Getting access to the newly-created files
