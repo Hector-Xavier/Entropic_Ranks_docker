@@ -5,7 +5,7 @@ Performs an Entropic Ranks analysis on a data set, returning a list containing d
 
 # Usage within an R script
 
-```{r}
+```console
 entropic_ranks(data_under_analysis,population_vector,data_origin=NULL,granularity=1,supervised=FALSE,process_log=FALSE,export_plots=FALSE,create_output_files=FALSE,is_logged=TRUE,logbase=2,huge_feature_list=FALSE)
 ```
 
