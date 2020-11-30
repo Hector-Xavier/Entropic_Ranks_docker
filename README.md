@@ -101,7 +101,7 @@ docker image save -o Entropic_Ranks_image_2020-10-22.tar.gz entropic_ranks
 ## Load a docker image from a tar archive file
 This allows a previously created tar archive file of a docker image to be loaded and prepared to be used to create new containers. Useful for archiving purposes and a pre-requisite to transfer the docker image to a machine instead of re-building it (e.g. to work around a lack of internet connectivity).
 ```console
-docker image load -i Entropic_Ranks_image_2020-10-22.tar.gz
+docker image load -i Entropic_Ranks_image_2020-10-22.tar
 ```
 
 **-i Entropic_Ranks_image_2020-10-22.tar.gz** - The "-i" flag signifies that Docker will attempt to parse and load the contents of a tar archive file. The "Entropic_Ranks_image_2020-10-22.tar.gz" part of the argument is the current name of the docker image tar archive file to be loaded (it can be a full path to the file).
