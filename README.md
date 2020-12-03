@@ -59,7 +59,7 @@ docker build -t entropic_ranks Entropic_Ranks_docker
 ## Full-parameter usage example
 Using default values.
 ```console
-docker run --rm -v "/your/data/here:/data entropic_ranks Rscript Entropic_Ranks.R /data/GSE_data_set.txt /data/vec.txt null 1 FALSE FALSE TRUE TRUE TRUE 2 FALSE
+docker run --rm -v /your/data/here:/data entropic_ranks Rscript Entropic_Ranks.R /data/GSE_data_set.txt /data/vec.txt null 1 FALSE FALSE TRUE TRUE TRUE 2 FALSE
 ```
 
 **-v "/your/data/here:/data entropic_ranks** - The "-v" flag signifies that Docker will use a folder from the researcher's system as a revolving door between the Docker container's (temporary) existence and the (more permanent) file system of the hosting machine. The "/your/data/here" part of the argument is the path to a folder in the host system where the data to be subjected to analysis are located, and should be set by the researcher. The "/data" part of the argument is a path determined by the container's internal structute and should not be changed.
