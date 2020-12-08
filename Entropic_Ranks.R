@@ -17,7 +17,6 @@ library("entropy")
 library("factoextra")
 library("plotly")
 
-library("rmarkdown")
 setwd("/data")
 
 entropic_ranks <- function(data_under_analysis,population_vector,data_origin=NULL,granularity=1,supervised,process_log=FALSE,export_plots=FALSE,create_output_files=FALSE,is_logged,logbase,huge_feature_list=FALSE)
